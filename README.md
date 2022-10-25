@@ -1,4 +1,3 @@
-My Drive
 # Sox The Cat Document
 edited using [dillinger](https://dillinger.io/)
 ## Installation
