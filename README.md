@@ -18,14 +18,14 @@ Using command line to get update
 sudo apt-get update
 sudo apt-get upgrade
 ```
-##### Git
+#### Git
 Using command line to install git 
 ```sh
 sudo apt-get install git
 ```
 > Note: Lite version raspberry pi os doesn't have built-in `git` command
 
-##### Python3.10
+#### Python3.10
 Before you begin, run a quick update to ensure your system is up-to-date to avoid conflicts during the tutorial and good system maintenance.
 ```sh
 sudo su
@@ -86,7 +86,7 @@ install `venv`
 sudo apt-get install python3-venv
 ```
 
-##### Numpy1.21.6
+#### Numpy1.21.6
 install Numpy1.21.6 in the venv using the command line
 ```sh
 pip install numpy==1.21.6
@@ -97,7 +97,7 @@ pip install pip --upgrade
 pip install tts --upgrade
 ```
 ## GUI 
-##### XFCE4
+#### XFCE4
 Turn on your Pi and log in. We will install Xorg. To do this type in:
 ```sh
 sudo apt-get install xserver-xorg
@@ -119,12 +119,13 @@ sudo apt-get install lightdm
 ```sh
 sudo apt-get clean
 ```
-> Note: More info about alternative GUI please refer this [link](https://forums.raspberrypi.com/viewtopic.php?t=133691)
+> Note: DON'T USE `startx` YET!!! UNLESS YOU WANT TO SET UP YOUR OWN REMOTE CONTROL.
+>> More info about alternative GUI please refer this [link](https://forums.raspberrypi.com/viewtopic.php?t=133691)
 
 ## Apps
 highly recommand using these apps to control and edit files on Pi
-##### Install TeamViewer
-
+#### TeamViewer
+I used TV to remote control my Pi, easy setup and doesn't require a monitor
 A .deb file is a package file designed for the Debian systems package management system. The .deb file is an archive containing all the files that we need for TeamViewer.
 ```sh
 wget https://download.teamviewer.com/download/linux/teamviewer-host_armhf.deb
@@ -139,8 +140,10 @@ sudo apt --fix-broken install
 ```
 Connect to Teamviewer with account and password, so that every time Raspberry Pi boit up, it shows in the TeamViewer account's online device list, then could be eaisly connect
 ```sh
+sudo teamviewer passwd <PASSWORD>
 sudo teamviewer setup
 ```
+> Note: `<PASSWORD>` must start with number or letter, and must include special character.
 
 use `raspi-config` to set auto login to GUI
 ```sh
@@ -154,13 +157,13 @@ sudo reboot
 After the reboot, we can use TeamViewer to remote control.
 > Note: Some device needs some customization to the `config.txt` file from the Raspberry Pi Boot loader to achive proper headless remote control performance. More info please refer to this [link](https://forums.raspberrypi.com/viewtopic.php?t=323294)
 
-##### Install Pi-Apps
-We use Pi-Apps to install other apps we need for this project
+#### Pi-Apps
+I use Pi-Apps to install other apps we need for this project
 ```sh
 git clone https://github.com/botspot/pi-apps
 ~/pi-apps/install
 ```
-##### Install Visual studio code
+#### Visual studio code
 use pi-apps to instal vs-code on Raspberry-Pi
 
 ## Voice Assistance
