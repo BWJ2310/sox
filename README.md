@@ -18,13 +18,84 @@ Using command line to get update
 sudo apt-get update
 sudo apt-get upgrade
 ```
-
+##### Git
 Using command line to install git 
 ```sh
 sudo apt-get install git
 ```
 > Note: Lite version raspberry pi os doesn't have built-in `git` command
 
+##### Python3.10
+Before you begin, run a quick update to ensure your system is up-to-date to avoid conflicts during the tutorial and good system maintenance.
+```sh
+sudo su
+cd ../../
+cd ./etc
+```
+```sh
+sudo apt update && sudo apt upgrade
+```
+First off, install the essential dependencies required for building Python 3.10 from source as we shall later see.
+```sh
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+```
+Download the Gzipped source tarball file using the wget command as shown.
+```sh
+sudo wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
+```
+
+Now we are ready to install Python 3.10 on Debian 11. First, navigate into the python 3.10 directory.
+```sh
+tar -xvf Python-3.10.0.tgz
+```
+
+Then execute the configure command to confirm if all the dependencies for the installation of Python 3.10 are met.
+```sh
+sudo ./configure --enable-optimizations
+```
+To start the build process. Execute the following make command. This takes quite a while, so be patient.
+```sh
+sudo make -j 2
+```
+The value  ‘2′ represents the number of CPU cores that can be confirmed using the nproc command. Adjust this value according to the number of CPU cores present on your system.
+```sh
+nproc
+```
+Finally, run the command below to install python binaries once the build process is complete:
+```sh 
+sudo make altinstall
+```
+Once the installation is complete, verify that python 3.10 is installed in your machine. Run:
+```sh
+python3.10 --version
+```
+> Note: if python version is not 3.1, run command `sudo find ./ -type f -name python3.10` and copy python3.10 path, then run `alias python=<PATH>` , `alias python3=<PATH>` , `alias pip=<PATH>`, and `pip3=<PATH>`
+
+get python3 pip
+```sh
+sudo apt-get install python3-pip
+sudo python3 -m pip install pip --upgrade pip
+```
+
+
+> Note: more info please refer to this [link](https://cloudcone.com/docs/article/how-to-install-python-3-10-on-debian-11/)
+
+
+install `venv`
+```sh
+sudo apt-get install python3-venv
+```
+
+##### Numpy1.21.6
+install Numpy1.21.6 in the venv using the command line
+```sh
+pip install numpy==1.21.6
+```
+now we enter the `venv`, we need to set uo the TTS server here
+```sh
+pip install pip --upgrade
+pip install tts --upgrade
+```
 ## GUI (XFCE4)
 Turn on your Pi and log in. We will install Xorg. To do this type in:
 ```sh
@@ -92,66 +163,6 @@ use pi-apps to instal vs-code on Raspberry-Pi
 ## Voice Assistance
 Install mycroft as the voice assistance
 before we do so, we need python3.10 and Numpy1.21.6 for [Coqui TTS](https://github.com/coqui-ai/TTS)
-##### Python3.10
-Before you begin, run a quick update to ensure your system is up-to-date to avoid conflicts during the tutorial and good system maintenance.
-```sh
-sudo su
-cd ../../
-cd ./etc
-```
-```sh
-sudo apt update && sudo apt upgrade
-```
-First off, install the essential dependencies required for building Python 3.10 from source as we shall later see.
-```sh
-sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
-```
-Download the Gzipped source tarball file using the wget command as shown.
-```sh
-sudo wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
-```
-
-Now we are ready to install Python 3.10 on Debian 11. First, navigate into the python 3.10 directory.
-```sh
-tar -xvf Python-3.10.0.tgz
-```
-
-Then execute the configure command to confirm if all the dependencies for the installation of Python 3.10 are met.
-```sh
-sudo ./configure --enable-optimizations
-```
-To start the build process. Execute the following make command. This takes quite a while, so be patient.
-```sh
-sudo make -j 2
-```
-The value  ‘2′ represents the number of CPU cores that can be confirmed using the nproc command. Adjust this value according to the number of CPU cores present on your system.
-```sh
-nproc
-```
-Finally, run the command below to install python binaries once the build process is complete:
-```sh 
-sudo make altinstall
-```
-Once the installation is complete, verify that python 3.10 is installed in your machine. Run:
-```sh
-python3.10 --version
-```
-> Note: if python version is not 3.1, run command `sudo find ./ -type f -name python3.10` and copy python3.10 path, then run `alias python=<PATH>` , `alias python3=<PATH>` , `alias pip=<PATH>`, and `pip3=<PATH>`
-
-get python3 pip
-```sh
-sudo apt-get install python3-pip
-sudo python3 -m pip install pip --upgrade pip
-```
-
-
-> Note: more info please refer to this [link](https://cloudcone.com/docs/article/how-to-install-python-3-10-on-debian-11/)
-
-
-install `venv`
-```sh
-sudo apt-get install python3-venv
-```
 ##### MyCroft
 You can find the mycroft-core repo from [here](https://github.com/MycroftAI/mycroft-core)
 ```sh
@@ -170,16 +181,6 @@ python3 -m venv .
 source ./bin/activate
 ```
 
-##### Numpy1.21.6
-install Numpy1.21.6 in the venv using the command line
-```sh
-pip install numpy==1.21.6
-```
-now we enter the `venv`, we need to set uo the TTS server here
-```sh
-pip install pip --upgrade
-pip install tts --upgrade
-```
 >  Note: Only do this if you want customized voice
 >- Find the `server.py` file under TTS directory by running this line 
 > ```sh 
