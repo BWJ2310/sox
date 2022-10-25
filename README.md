@@ -166,6 +166,9 @@ git clone https://github.com/botspot/pi-apps
 #### Visual studio code
 use pi-apps to instal vs-code on Raspberry-Pi
 
+#### Chromium
+use pi-apps to instal Chromium on Raspberry-Pi
+
 ## Voice Assistance
 Install mycroft as the voice assistance
 before we do so, we need python3.10 and Numpy1.21.6 for [Coqui TTS](https://github.com/coqui-ai/TTS)
