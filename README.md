@@ -96,7 +96,8 @@ now we enter the `venv`, we need to set uo the TTS server here
 pip install pip --upgrade
 pip install tts --upgrade
 ```
-## GUI (XFCE4)
+## GUI 
+##### XFCE4
 Turn on your Pi and log in. We will install Xorg. To do this type in:
 ```sh
 sudo apt-get install xserver-xorg
@@ -120,6 +121,8 @@ sudo apt-get clean
 ```
 > Note: More info about alternative GUI please refer this [link](https://forums.raspberrypi.com/viewtopic.php?t=133691)
 
+## Apps
+highly recommand using these apps to control and edit files on Pi
 ##### Install TeamViewer
 
 A .deb file is a package file designed for the Debian systems package management system. The .deb file is an archive containing all the files that we need for TeamViewer.
