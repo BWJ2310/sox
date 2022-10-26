@@ -18,6 +18,7 @@ Using command line to get update
 sudo apt-get update
 sudo apt-get upgrade
 ```
+
 #### Git
 Using command line to install git 
 ```sh
@@ -222,6 +223,7 @@ pip install tts --upgrade
 >```
 >- find `synthesize.tts(...)`, add `language_name = "en",` inside the parante parantesis
 
+> Note: if encounter _lzma module not found, run command `sudo apt-get install liblzma-dev` and `pip install backports.lzma`, then enter `sudo nano /usr/local/lib/python3.10/lzma.py`, change line 27 and 28 to ""
 
 initiate the server by running the folowing line
 ```sh
