@@ -129,10 +129,6 @@ When you install XFCE, some essentials such as settings and file manager are inc
 ```sh
 sudo apt-get install xfce4 xfce4-terminal
 ```
-we need to install LightDM login manager. If you have installed the basic or stripped version of the RPD desktop environment, then LightDM package is installed automatically so you can skip this step. As of the release of Raspbian Stretch, if you installed the XFCE desktop environment, LightDM is also installed automatically so you do not need to do this step. Otherwise, to install LightDM, type in:
-```sh
-sudo apt-get install lightdm
-```
  To clean up leftover packages, type in:
 ```sh
 sudo apt-get clean
