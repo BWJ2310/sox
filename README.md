@@ -75,8 +75,8 @@ run command line to update python alternatives
 ```sh
 sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python3.10 1
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.10 1
-sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python3.9 1
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.9 2
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 2
 ```
 ```sh
 python3 --version
@@ -108,10 +108,10 @@ install `venv`
 sudo apt-get install python3-venv
 ```
 
-#### Numpy1.21.6
+#### Numpy1.22.4
 install Numpy1.21.6 in the venv using the command line
 ```sh
-pip install numpy==1.21.6
+pip install numpy==1.22.4
 ```
 
 ## GUI 
