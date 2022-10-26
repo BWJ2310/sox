@@ -69,14 +69,35 @@ Once the installation is complete, verify that python 3.10 is installed in your 
 ```sh
 python3.10 --version
 ```
-> Note: if python version is not 3.1, run command `sudo find ./ -type f -name python3.10` and copy python3.10 path, then run `alias python=<PATH>` , `alias python3=<PATH>` , `alias pip=<PATH>`, and `pip3=<PATH>`
+
+run command line to update python alternatives
+```sh
+sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python3.10 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.10 1
+sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python3.9 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.9 2
+```
+```sh
+python3 --version
+python --version
+```
+
+
+> Note: if python version is not 3.1, run command `sudo find / -type f -name python3.10` and copy python3.10 path, then run `alias python=<PATH>` , `alias python3=<PATH>` , `alias pip=<PATH>`, and `pip3=<PATH>`
 
 get python3 pip
 ```sh
 sudo apt-get install python3-pip
 sudo python3 -m pip install pip --upgrade pip
 ```
-
+we may encounter a `lsb_release` issue here, run command line to edit lsb_release file
+```sh
+sudo nano /usr/bin/lsb_release
+```
+edit the first line to the following:
+```sh
+#! /usr/bin/python3.10  
+```
 
 > Note: more info please refer to this [link](https://cloudcone.com/docs/article/how-to-install-python-3-10-on-debian-11/)
 
@@ -91,11 +112,7 @@ install Numpy1.21.6 in the venv using the command line
 ```sh
 pip install numpy==1.21.6
 ```
-now we enter the `venv`, we need to set uo the TTS server here
-```sh
-pip install pip --upgrade
-pip install tts --upgrade
-```
+
 ## GUI 
 #### XFCE4
 Turn on your Pi and log in. We will install Xorg. To do this type in:
@@ -170,8 +187,8 @@ use pi-apps to instal vs-code on Raspberry-Pi
 use pi-apps to instal Chromium on Raspberry-Pi
 
 ## Voice Assistance
-Install mycroft as the voice assistance
-before we do so, we need python3.10 and Numpy1.21.6 for [Coqui TTS](https://github.com/coqui-ai/TTS)
+Install mycroft as the voice assistance with Coqui TTS YourTTS model
+
 ##### MyCroft
 You can find the mycroft-core repo from [here](https://github.com/MycroftAI/mycroft-core)
 ```sh
@@ -189,7 +206,11 @@ cd Coqui
 python3 -m venv .
 source ./bin/activate
 ```
-
+now we enter the `venv`, we need to set uo the TTS server here
+```sh
+pip install pip --upgrade
+pip install tts --upgrade
+```
 >  Note: Only do this if you want customized voice
 >- Find the `server.py` file under TTS directory by running this line 
 > ```sh 
