@@ -189,10 +189,14 @@ Install mycroft as the voice assistance with Coqui TTS YourTTS model
 ##### MyCroft
 You can find the mycroft-core repo from [here](https://github.com/MycroftAI/mycroft-core)
 ```sh
-cd ~/
+mkdir VA
+cd ~/VA
+python3 -m venv .
+source ./bin/activate
 git clone https://github.com/MycroftAI/mycroft-core.git
 cd mycroft-core
 bash dev_setup.sh
+deactivate
 ```
 ##### Coqui
 installing Coqui TTS server in the main directory
